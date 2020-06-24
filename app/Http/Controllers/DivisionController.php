@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 
 class DivisionController extends Controller
@@ -16,13 +17,13 @@ class DivisionController extends Controller
 
     public function create(Request $request)
     {
-        $code = $request -> input('code');
-        $nama = $request -> input('nama');
+        $division_name = $request->input('division_name');
+        $division_code = Str::upper(Str::substr($division_name, 0, 2))."-".date('Y')."-".Str::upper(Str::random(2));
 
         $division = DB::table('division')->insert(
-            ['division_code' => $code,
-            'division_name' => $nama]
-        );
+            ['division_code' => $division_code,
+            'division_name' => $division_name]
+        );   
 
         if($division){
             return redirect('/division')->with('status','Data Divisi Berhasil Ditambah');

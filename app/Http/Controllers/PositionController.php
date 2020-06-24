@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PositionController extends Controller
 {
@@ -15,12 +16,12 @@ class PositionController extends Controller
 
     public function create(Request $request)
     {
-        $code = $request -> input('code');
-        $nama = $request -> input('nama');
+        $position_name = $request->input('position_name');
+        $position_code = Str::upper(Str::substr($position_name, 0, 2))."-".date('y-m-d')."-".Str::upper(Str::random(2));
 
         $position = DB::table('position')->insert(
-            ['position_code' => $code,
-            'position_name' => $nama]
+            ['position_code' => $position_code,
+            'position_name' => $position_name]
         );
 
         if($position){

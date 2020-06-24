@@ -1,4 +1,9 @@
 @include('snippets.header')
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <div class="container">
   @include('snippets.menu')
@@ -14,18 +19,14 @@
       </div>
   @endif
  
-      <div class="collapse" id="collapseExample">
+<div class="collapse" id="collapseExample">
     <div class="card card-body">
         <form action="/position/create" method="POST">
           {{csrf_field ()}}
-          <div class="form-group">
-              <label for="exampleInputEmail1">Code Jabatan</label>
-                  <input type="text" name="code" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          </div>
-                
+
           <div class="form-group">
               <label for="exampleInputPassword1">Nama Jabatan</label>
-                  <input type="text" name="nama" class="form-control" id="exampleInputPassword1">
+                  <input type="text" name="position_name" class="form-control" id="exampleInputPassword1">
           </div>
   
               <button type="submit" class="btn btn-primary">Submit</button>
