@@ -49,15 +49,7 @@
                   </select>
             </div>     
 
-            <div class="form-group">
-              <label for="exampleInputPassword1">Kode Gaji</label>
-                  <select name="salary_code" class="form-control">
-                      <option>--pilih--</option>
-                          @foreach ($salary as $item)
-                        <option value="{{$item->salary_code}}">{{$item->salary_code}}</option>
-                          @endforeach
-                  </select>
-            </div>     
+    
 
               <button type="submit" class="btn btn-primary">Submit</button>
         </form>
