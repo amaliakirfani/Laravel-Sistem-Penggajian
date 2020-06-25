@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
 {
-    function index(){
-        
+    public function index()
+    {
+        $employee = DB::table('employee')->get();
+
+        return view('employee.show_employee', ['employee' => $employee]);
     }
 }

@@ -87,7 +87,16 @@
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="index.html" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+						<li>
+						<a href="#subDashboard" data-toggle="collapse" class="collapsed"><i class="lnr lnr-home"></i> <span>Dashboard</span><i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subDashboard" class="collapse ">
+								<ul class="nav">
+									<li><a href="/division" class="">Divisi</a></li>
+									<li><a href="/position" class="">Jabatan</a></li>
+									<li><a href="/salary" class="">Gaji</a></li>
+								</ul>
+							</div>
+						</li>
 						
 						<li>
 							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Pages</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
@@ -96,8 +105,7 @@
 									<li><a href="page-profile.html" class="">Profile</a></li>
 									<li><a href="page-login.html" class="">Login</a></li>
 									<li><a href="page-lockscreen.html" class="">Lockscreen</a></li>
-									<li><a href="/division" class="">Divisi</a></li>
-									<li><a href="/position" class="">Jabatan</a></li>
+									
 								</ul>
 							</div>
 						</li>

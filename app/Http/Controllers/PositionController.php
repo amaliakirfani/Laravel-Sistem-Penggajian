@@ -50,13 +50,12 @@ class PositionController extends Controller
     }
 
     function update(Request $request){
-        $code = $request->input('code');
         $nama = $request->input('nama');
         $id = $request->input('id');
 
-        $position = DB::table('position_table')
+        $position = DB::table('position')
             ->where('position_id', $id)
-            ->update(['position_code' => $code, 'position_name'=>$nama]);
+            ->update(['position_name'=>$nama]);
 
         if($position){
             return redirect('/position')->with('status', 'Berhasil Update Jabatan');

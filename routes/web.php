@@ -31,6 +31,13 @@ Route::get('/position/delete/{position_id}','PositionController@delete');
 Route::get('/position/edit/{position_id}','PositionController@edit');
 Route::post('/position/update','PositionController@update');
 
+Route::get('/salary','SalaryController@index');
+Route::get('/salary/create','SalaryController@create');
+Route::post('/salary/create','SalaryController@create');
+Route::get('/salary/delete/{salary_id}','SalaryController@delete');
+Route::get('/salary/edit/{salary_id}','SalaryController@edit');
+Route::post('/salary/update','SalaryController@update');
+
 Route::get('/employee','EmployeeController@index');
 Route::get('/employee/create','EmployeeController@create');
 Route::post('/employee/create','EmployeeController@create');
