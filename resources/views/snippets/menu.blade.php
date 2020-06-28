@@ -91,6 +91,7 @@
 						<a href="#subDashboard" data-toggle="collapse" class="collapsed"><i class="lnr lnr-home"></i> <span>Dashboard</span><i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subDashboard" class="collapse ">
 								<ul class="nav">
+									<li><a href="/employee" class="">Karyawan</a></li>
 									<li><a href="/division" class="">Divisi</a></li>
 									<li><a href="/position" class="">Jabatan</a></li>
 									<li><a href="/salary" class="">Gaji</a></li>

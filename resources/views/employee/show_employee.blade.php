@@ -25,8 +25,13 @@
           {{csrf_field ()}}
 
           <div class="form-group">
+              <label for="exampleInputPassword1">NIK</label>
+                  <input type="text" name="nik" class="form-control" id="exampleInputPassword1">
+          </div>
+
+          <div class="form-group">
               <label for="exampleInputPassword1">Nama Karyawan</label>
-                  <input type="text" name="position_name" class="form-control" id="exampleInputPassword1">
+                  <input type="text" name="employee_name" class="form-control" id="exampleInputPassword1">
           </div>
   
           <div class="form-group">
@@ -49,8 +54,6 @@
                   </select>
             </div>     
 
-    
-
               <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
@@ -61,21 +64,26 @@
   <thead>
     <tr>
       <th scope="col">No</th>
-      <th scope="col">Code Jabatan</th>
-      <th scope="col">Nama Jabatan</th>
+      <th scope="col">NIK</th>
+      <th scope="col">Nama Karyawan</th>
+      <th scope="col">Kode Jabatan</th>
+      <th scope="col">Kode Divisi</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
-    @foreach($position as $item)
+    @foreach($employee as $item)
     <tr>
       <td></td>
+      <td>{{$item->nik}}</td>
+      <td>{{$item->employee_name}}</td>
       <td>{{$item->position_code}}</td>
-      <td>{{$item->position_name}}</td>
+      <td>{{$item->division_code}}</td>
       <td>
-      <a href="/position/delete/{{$item->position_id}}">
+      <a href="/employee/delete/{{$item->employee_id}}">
         <button class="btn btn-danger">Hapus</button></a>
 
-        <a href="/position/edit/{{$item->position_id}}">
+        <a href="/employee/edit/{{$item->employee_id}}">
         <button class="btn btn-warning">Edit</button></a>
       </td>
     </tr>
