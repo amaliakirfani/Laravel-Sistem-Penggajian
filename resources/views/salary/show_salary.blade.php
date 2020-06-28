@@ -29,7 +29,7 @@
                   <select name="division_name" class="form-control">
                       <option>--pilih--</option>
                           @foreach ($division as $item)
-                        <option value="{{$item->division_name}}">{{$item->division_name}}</option>
+                        <option value="{{$item->division_code}}">{{$item->division_name}}</option>
                           @endforeach
                   </select>
             </div> 
@@ -39,7 +39,7 @@
                   <select name="position_name" class="form-control">
                       <option>--pilih--</option>
                           @foreach ($position as $item)
-                        <option value="{{$item->position_name}}">{{$item->position_name}}</option>
+                        <option value="{{$item->position_code}}">{{$item->position_name}}</option>
                           @endforeach
                   </select>
             </div> 

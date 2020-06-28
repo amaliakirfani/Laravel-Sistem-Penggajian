@@ -18,19 +18,20 @@ class SalaryController extends Controller
 
     public function create(Request $request)
     {
-        $division_name = $request->input('division_name');
-        $division_code = Str::upper(Str::substr($division_name, 0, 2));
+        $division = $request->input('division_name');
+        $division_code = Str::upper(Str::substr($division, 0, 2));
 
-        $position_name = $request->input('position_name');
-        $position_code = Str::upper(Str::substr($position_name, 0, 2));
+        var_dump($division);
+        $position = $request->input('position_name');
+        $position_code = Str::upper(Str::substr($position, 0, 2));
 
         $salary = $request->input('salary');
         $salary_code = $division_code."-".$position_code."-".date('Y')."-".Str::upper(Str::random(2));
 
         $salary = DB::table('salary')->insert(
             ['salary_code' => $salary_code,
-            'division_code' => $division_code,
-            'position_code' => $position_code,
+            'division_code' => $division,
+            'position_code' => $position,
             'salary' => $salary]
         );
 

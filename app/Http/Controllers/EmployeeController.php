@@ -35,6 +35,10 @@ class EmployeeController extends Controller
             ['position_code', '=', $position],
         ])->first();
 
+        if (empty($salary)){
+            return redirect('/employee')->with('status', 'Data Salary Belum Ada Silahkan Isi Dulu');
+        }
+
         $employee = DB::table('employee')
         ->orderBy('nik', 'desc')
         ->limit(1)
