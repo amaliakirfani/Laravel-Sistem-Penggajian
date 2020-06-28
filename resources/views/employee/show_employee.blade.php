@@ -24,10 +24,10 @@
         <form action="/employee/create" method="POST">
           {{csrf_field ()}}
 
-          <div class="form-group">
+          {{-- <div class="form-group">
               <label for="exampleInputPassword1">NIK</label>
                   <input type="text" name="nik" class="form-control" id="exampleInputPassword1">
-          </div>
+          </div> --}}
 
           <div class="form-group">
               <label for="exampleInputPassword1">Nama Karyawan</label>

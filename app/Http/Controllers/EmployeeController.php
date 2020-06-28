@@ -22,35 +22,44 @@ class EmployeeController extends Controller
 
     function create(Request $request)
     {
-        $nik=$request->input('nik');
-        $division=$request->input('division_name');
-        $position=$request->input('position_name');
-        $employee=$request->input('employee_name');
+        // $nik=$request->input('nik');
+        $division=$request->input('division_code');
+        $position=$request->input('position_code');
+        $employee_name=$request->input('employee_name');
         
-        $num = 123;
-        $str_length = 1;
+        // $num = 123;
+        // $str_length = 1;
         
         $salary= DB::table('salary')->where([
-            ['division_name', '=', $division],
-            ['position_name', '=', $position],
+            ['division_code', '=', $division],
+            ['position_code', '=', $position],
         ])->first();
-        
-        $employee = DB::table('employee') -> insert(
-            ['nik'=>$nik,
-            'employee_name'=>$employee]
-        );
-                /*->orderBy('nik', 'desc')
-                ->limit(10)
-                ->first();*/
-        $nik=$employee->nik;
-        $str = substr("{$num}", -$str_length);
-        print ($nik);
 
-       /* if($employee){
+        $employee = DB::table('employee')
+        ->orderBy('nik', 'desc')
+        ->limit(1)
+        ->first(); // $employee->nik = 3
+
+        if (empty($employee)){
+            $nik='1';
+        }else{
+            $nik=$employee->nik+1;
+        }
+          
+        $employee = DB::table('employee') -> insert(
+            ['nik'=>(string)$nik,
+            'employee_name'=>$employee_name,
+            'division_code' => $division,
+            'position_code' => $position,
+            'salary_code' => $salary->salary_code,
+            ]
+        );
+            
+       if($employee){
             return redirect('/employee')->with('status', 'Data Karyawan Berhasil Ditambah');
         }
         else{
             print('input gagal');
-        }*/ 
+        }
     }
 }
