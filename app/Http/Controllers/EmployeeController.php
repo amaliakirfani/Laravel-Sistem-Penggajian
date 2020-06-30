@@ -66,4 +66,37 @@ class EmployeeController extends Controller
             print('input gagal');
         }
     }
+
+    function delete($employee_id){
+        $employee=DB::table('employee')->where('employee_id', '=', $employee_id)-> delete();
+
+        if ($employee){
+            return redirect('/employee')->with('status', 'Berhasil Hapus Data Karyawan');
+        }
+        else{
+            return redirect('/employee')->with('status', 'Gagal Hapus Data Karyawan');
+        }
+    }
+
+    function edit($employee_id){
+        $employee=DB::table('employee')->where('employee_id', '=', $employee_id)-> first();
+
+        return view('/employee.edit_employee',['employee'=>$employee]);
+    }
+
+    function update(Request $request){
+        $employee = $request->input('employee'); //untuk edit
+        $id = $request->input('id');
+
+        $employee = DB::table('employee')
+            ->where('employee_id', $id)
+            ->update(['employee'=>$employee]);
+
+        if($employee){
+            return redirect('/employee')->with('status', 'Berhasil Update Data Karyawan');
+        }
+        else{
+            return redirect('/employee')->with('status', 'Gagal Update Data Karyawan');
+        }
+    }
 }

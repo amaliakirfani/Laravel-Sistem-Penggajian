@@ -1,25 +1,3 @@
-<!--
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-          <a class="nav-link" href="/division">Divisi Karyawan<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-          <a class="nav-link" href="/position">Jabatan Karyawan</a>
-          </li>
-          <li class="nav-item">
-          <a class="nav-link" href="/employee">Karyawan</a>
-          </li>
-          <li class="nav-item">
-          <a class="nav-link" href="/salary">Gaji Karyawan</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
--->
-
-
 
 <body>
 	<!-- WRAPPER -->
@@ -95,6 +73,7 @@
 									<li><a href="/division" class="">Divisi</a></li>
 									<li><a href="/position" class="">Jabatan</a></li>
 									<li><a href="/salary" class="">Gaji</a></li>
+									<li><a href="/absensi" class="">Absensi</a></li>
 								</ul>
 							</div>
 						</li>

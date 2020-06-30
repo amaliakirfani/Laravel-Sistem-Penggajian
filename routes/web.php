@@ -44,3 +44,9 @@ Route::post('/employee/create','EmployeeController@create');
 Route::get('/employee/delete/{employee_id}','EmployeeController@delete');
 Route::get('/employee/edit/{employee_id}','EmployeeController@edit');
 Route::post('/employee/update','EmployeeController@update');
+
+Route::get('/absensi','AbsensiController@index');
+Route::get('/absensi/create','AbsensiController@create');
+Route::post('/absensi/create','AbsensiController@create');
+Route::get('/absensi/edit/{absensi_id}','AbsensiController@edit');
+Route::post('/absensi/update','AbsensiController@update');

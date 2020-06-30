@@ -9,7 +9,7 @@
     </div>
     <div class="form-group">
         <label for="exampleInputPassword1">Nama Karyawan</label>
-        <input value={{$employee->employee_name}} type="text" name="nama" class="form-control" id="exampleInputPassword1">
+        <input value={{$employee->employee_name}} type="text" name="employee" class="form-control" id="exampleInputPassword1">
     </div>
     
     <button type="submit" class="btn btn-primary">Submit</button>
