@@ -76,4 +76,5 @@ class SalaryController extends Controller
             return redirect('/salary')->with('status', 'Gagal Update Jumlah Gaji');
         }
     }
+
 }

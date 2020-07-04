@@ -22,13 +22,10 @@ class EmployeeController extends Controller
 
     function create(Request $request)
     {
-        // $nik=$request->input('nik');
         $division=$request->input('division_code');
         $position=$request->input('position_code');
         $employee_name=$request->input('employee_name');
         
-        // $num = 123;
-        // $str_length = 1;
         
         $salary= DB::table('salary')->where([
             ['division_code', '=', $division],

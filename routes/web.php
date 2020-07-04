@@ -50,3 +50,6 @@ Route::get('/absensi/create','AbsensiController@create');
 Route::post('/absensi/create','AbsensiController@create');
 Route::get('/absensi/edit/{absensi_id}','AbsensiController@edit');
 Route::post('/absensi/update','AbsensiController@update');
+
+Route::get('/report','ReportController@index');
+Route::post('/report/print','ReportController@salary_print');

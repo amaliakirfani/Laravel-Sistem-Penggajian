@@ -9,17 +9,33 @@ class AbsensiController extends Controller
 {
     public function index()
     {
-        $absensi = DB::table('absensi')->get();
         $employee = DB::table('employee')->get();
+        $absensi = DB::table('absensi')
+            ->join('employee','employee.nik','=','absensi.nik')
+            ->select('*')
+            ->get();
         return view('absensi.show_absensi', ['absensi' => $absensi, 'employee' => $employee]);
     }
 
-    public function absensi(Request $request)
+    function create(Request $request)
     {
-        $tanggal = date("Y-m-d");
-        $jam_masuk = date("H:i:s");
-        $jam_keluar= date("H:i:s");
-        return $request->all();
-       
+        $nik=$request->input('nik');
+        $jam_masuk=$request->input('jam_masuk');
+        $jam_keluar=$request->input('jam_keluar');
+        $tanggal=$request->input('tanggal');
+
+        $absensi = DB::table('absensi')->insert(
+            ['nik' => $nik,
+            'jam_masuk' => $jam_masuk,
+            'jam_keluar' => $jam_keluar,
+            'tanggal' => $tanggal ]
+        );
+
+        if($absensi){
+            return redirect('/absensi')->with('status', 'Data Absensi Berhasil Ditambah');
+        }
+        else{
+            print('input gagal');
+        } 
     }
 }

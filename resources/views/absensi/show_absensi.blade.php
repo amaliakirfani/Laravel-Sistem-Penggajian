@@ -16,18 +16,39 @@
       <div class="alert alert-success">
           {{ session('status') }}
       </div>
-  @endif
+      @endif
  
       <div class="collapse" id="collapseExample">
     <div class="card card-body">
         <form action="/absensi/create" method="POST">
           {{csrf_field ()}}
                 
-          {{-- <div class="form-group">
+          <div class="form-group">
               <label for="exampleInputPassword1">NIK</label>
-                  <input type="text" name="nik" class="form-control" id="exampleInputPassword1">
-          </div> --}}
-  
+                  <select name="nik" class="form-control">
+                      <option>--pilih--</option>
+                          @foreach ($employee as $item)
+                        <option value="{{$item->nik}}">{{$item->nik}}</option>
+                          @endforeach
+                  </select>
+            </div> 
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">Jam Masuk</label>
+                    <input type="time" name="jam_masuk" class="form-control" id="exampleInputPassword1">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">Jam Keluar</label>
+                    <input type="time" name="jam_keluar" class="form-control" id="exampleInputPassword1">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">Tanggal</label>
+                <input type="date" name="tanggal" class="form-control" id="exampleInputPassword1">
+                
+            </div>
+    
               <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
@@ -42,7 +63,6 @@
       <th scope="col">Jam Masuk</th>
       <th scope="col">Jam Keluar</th>
       <th scope="col">Tanggal</th>
-      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -53,13 +73,6 @@
       <td>{{$item->jam_masuk}}</td>
       <td>{{$item->jam_keluar}}</td>
       <td>{{$item->tanggal}}</td>
-      <td>
-      <a href="/absensi/delete/{{$item->absensi_id}}">
-        <button class="btn btn-danger">Hapus</button></a>
-
-        <a href="/absensi/edit/{{$item->absensi_id}}">
-        <button class="btn btn-warning">Edit</button></a>
-      </td>
     </tr>
     @endforeach
   </tbody>

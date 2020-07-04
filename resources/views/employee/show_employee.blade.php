@@ -36,20 +36,20 @@
   
           <div class="form-group">
               <label for="exampleInputPassword1">Kode Jabatan</label>
-                  <select name="position_code" class="form-control">
+                  <select name="position_name" class="form-control">
                       <option>--pilih--</option>
                           @foreach ($position as $item)
-                        <option value="{{$item->position_code}}">{{$item->position_code}}</option>
+                        <option value="{{$item->position_name}}">{{$item->position_name}}</option>
                           @endforeach
                   </select>
             </div>      
             
             <div class="form-group">
               <label for="exampleInputPassword1">Kode Divisi</label>
-                  <select name="division_code" class="form-control">
+                  <select name="division_name" class="form-control">
                       <option>--pilih--</option>
                           @foreach ($division as $item)
-                        <option value="{{$item->division_code}}">{{$item->division_code}}</option>
+                        <option value="{{$item->division_name}}">{{$item->division_name}}</option>
                           @endforeach
                   </select>
             </div>     
