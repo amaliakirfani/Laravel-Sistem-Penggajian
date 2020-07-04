@@ -10,7 +10,7 @@
         <p class="text-sm-left">Nama Karyawan : {{$report_salary->employee_name}}</p>
         <p class="text-sm-left">Divisi : {{$report_salary->division_name}}</p>
         <p class="text-sm-left">Jabatan : {{$report_salary->position_name}}</p>
-        {{-- <p class="text-sm-left">Total Gaji : {{$report_salary->nik}}</p> --}}
+        <p class="text-sm-left">Total Gaji : {{$report_salary->total_salary}}</p> 
 
     <table class="table">
     <thead>
