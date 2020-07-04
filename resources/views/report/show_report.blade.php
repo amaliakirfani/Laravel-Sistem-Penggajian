@@ -9,7 +9,7 @@
   @include('snippets.menu')
 <p>
     <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-    Tambah Karyawan
+    Print Slip Gaji
     </a>
   </p>
 

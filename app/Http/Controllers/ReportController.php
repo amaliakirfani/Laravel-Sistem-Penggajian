@@ -32,23 +32,41 @@ class ReportController extends Controller
 
     function salary_print(Request $request)
     {
-        $employee=$request->input('employee_name');
-        $division=$request->input('division_code');
-        $position=$request->input('position_code');
-        $report_salary=$request->input('total_salary');
+        // $employee=$request->input('employee_name');
+        // $division=$request->input('division_code');
+        // $position=$request->input('position_code');
+        // $report_salary=$request->input('total_salary');
+        $nik=$request->input('nik');
+        $date=$request->input('date');
 
-        $report_salary= DB::table('report_salary')->where([
-            ['nik', '=', $employee],
-            ['employee_name', '=', $employee],
-            ['division_code', '=', $division],
-            ['position_code', '=', $position],
-            ['date', '=', $report_salary],
-            ['total_salary', '=', $report_salary],
-        ])->first();
+        // $report_salary= DB::table('report_salary')->where([
+        //     ['nik', '=', $employee],
+        //     ['employee_name', '=', $employee],
+        //     ['division_code', '=', $division],
+        //     ['position_code', '=', $position],
+        //     ['date', '=', $report_salary],
+        //     ['total_salary', '=', $report_salary],
+        // ])->first();
 
-        $pdf=PDF::loadView('report.report_print');
+        $report_salary = DB::table('report_salary')
+        ->join('employee','employee.nik','=','report_salary.nik')
+        ->join('position','position.position_code','=','employee.position_code')
+        ->join('division','division.division_code','=','employee.division_code')
+        ->select('*')
+        ->where('report_salary.nik',$nik)
+        ->where('report_salary.date',$date)
+        ->first();
 
+        $pdf=PDF::loadView('report.report_print',['report_salary'=>$report_salary]);
+        // return $report_salary->nik;
         return $pdf->stream();
 
     }
 }
+
+// NAMA
+// NIK
+// DIvisi
+// Jabatan
+// Total GAJI
+// Tanggal

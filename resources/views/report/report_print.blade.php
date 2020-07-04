@@ -6,11 +6,11 @@
     </head>
     <body>
     <h3 class="text-sm-center">SLIP GAJI KARYAWAN</h3>
-        <p class="text-sm-left">NIK : {{$salary['data']['nik']}}</p>
-        <p class="text-sm-left">Nama Karyawan : {{$salary['data']['employee_name']}}</p>
-        <p class="text-sm-left">Divisi : {{$salary['data']['division_name']}}</p>
-        <p class="text-sm-left">Jabatan : {{$salary['data']['position_name']}}</p>
-        <p class="text-sm-left">Total Gaji : {{$salary['data']['salary']}}</p>
+        <p class="text-sm-left">NIK : {{$report_salary->nik}}</p>
+        <p class="text-sm-left">Nama Karyawan : {{$report_salary->employee_name}}</p>
+        <p class="text-sm-left">Divisi : {{$report_salary->division_name}}</p>
+        <p class="text-sm-left">Jabatan : {{$report_salary->position_name}}</p>
+        {{-- <p class="text-sm-left">Total Gaji : {{$report_salary->nik}}</p> --}}
 
     <table class="table">
     <thead>
@@ -28,7 +28,7 @@
         
     </thead>
     <tbody>
-        @foreach($salary['data']['salary'] as $item)
+        {{-- @foreach($salary['data']['salary'] as $item)
         <tr>
         <td>{{ $no++ }}</td>
         <td>{{$item['nik']}}</td>
@@ -37,7 +37,7 @@
         <td>{{$item['position_name']}}</td>
         <td>{{$item['salary']}}</td>
         </tr>
-        @endforeach
+        @endforeach --}}
     </tbody>
     </table>
     </body>
