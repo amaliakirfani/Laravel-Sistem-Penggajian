@@ -41,31 +41,17 @@ class ReportController extends Controller
         //return $pdf->download();
         return view ('report.report_print',['report_salary'=>$report_salary[0]]);
 
+        if ($report_salary){
+            return redirect('/report/print')->with('status', 'Berhasil Print Data Penggajian');
+        }
+        else{
+            return redirect('/report/print')->with('status', 'Gagal Print Data Penggajian');
+        }
+
     }
+
+    /*function salary_count (Request $request)
+    {
+        
+    }*/
 }
-
-/*SELECT absensi.nik, employee.employee_name, position_name, division_name, tanggal
-FROM employee
-INNER JOIN division on division.division_code=employee.division_code
-INNER JOIN position on position.position_code=employee.position_code
-INNER JOIN absensi on absensi.tanggal=absensi.tanggal
-
-SELECT absensi.nik, position_name, division_name, tanggal
-FROM employee
-INNER JOIN division on division.division_code=employee.division_code
-INNER JOIN position on position.position_code=employee.position_code
-INNER JOIN absensi on absensi.tanggal=absensi.tanggal
-WHERE absensi.nik='1' 
-
-SELECT absensi.nik, position_name, division_name, tanggal
-FROM employee
-INNER JOIN division on division.division_code=employee.division_code
-INNER JOIN position on position.position_code=employee.position_code
-INNER JOIN absensi on absensi.tanggal=absensi.tanggal
-WHERE division.division_name='engineering'
-
-SELECT employee.nik, position_name, division_name
-FROM employee
-INNER JOIN division on division.division_code=employee.division_code
-INNER JOIN position on position.position_code=employee.position_code
-WHERE division.division_name="Engineering" AND position.position_name="Welder"*/
